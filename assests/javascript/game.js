@@ -1,4 +1,10 @@
-var wordbank = ["test", "testagain", "testyetagain"];
+var wordbank=["test", "pie", "tart", "lemon", "drops", "muffin", "pudding", "tiramisu", "pie", "topping", "chocolate", "gummi", "bears",
+ "chupa", "chups", "souffle", "sweet", "roll", "tart", "brownie", "cheesecake", "caramels", "brownie", "icing", "wafer", "jujubes", "chocolate",
+  "bar", "pie", "chocolate", "cake", "candy", "canes", "marzipan", "cheesecake", "gingerbread", "gummies", "cake", "chocolate", "cake",
+   "biscuit", "icing", "donut", "chocolate", "ice", "cream", "biscuit", "cookie", "tootsie", "roll", "lollipop", "cupcake", "carrot", "cake",
+    "jelly", "topping", "powder", "pie", "jelly", "powder", "dessert", "chocolate", "bar", "candy", "cake", "gingerbread", "apple", "pie",
+     "chocolate", "bar", "jelly", "beans", "ice", "cream", "muffin", "fruitcake", "tootsie", "roll", "lemon", "drops", "lemon", "drops", "lollipop", 
+     "icing", "biscuit", "tiramisu", "liquorice", "apple", "pie", "marzipan", "tiramisu", "chocolate", "cake"]
 //intialization
 var wins = 0;
 var losses = 0;
@@ -25,7 +31,6 @@ function newGame() {
 
 newGame();
 document.getElementById("currentwordprogress").innerHTML = currentwordprogress; //remove
-document.getElementById("currentword").innerHTML = currentword; //remove
 
 //this function should take the guess and fill in the spots where the letter occurs
 function updateWordProgress() {
@@ -46,7 +51,8 @@ document.onkeyup = function (event) {
         if (currentword.includes(userGuess)) {
             updateWordProgress();
             //they win
-            if(!wordholder.includes('_')){
+            if (!wordholder.includes('_')) {
+                document.getElementById("currentwordprogress").innerHTML = currentwordprogress;
                 alert("Hooray! You win!");
                 wins++;
                 newGame();
@@ -55,7 +61,7 @@ document.onkeyup = function (event) {
         //the guess is wrong
         else {
             guessesleft--;
-            if(guessesleft<1){
+            if (guessesleft < 1) {
                 alert("You lose!");
                 losses++;
                 newGame();
@@ -72,7 +78,6 @@ document.onkeyup = function (event) {
     document.getElementById("losses").innerHTML = losses;
     document.getElementById("guessesleft").innerHTML = guessesleft;
     document.getElementById("madeguesses").innerHTML = guesses;
-    document.getElementById("currentword").innerHTML = currentword; //remove
     document.getElementById("currentwordprogress").innerHTML = currentwordprogress; //remove
 
 }
